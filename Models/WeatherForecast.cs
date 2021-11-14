@@ -1,6 +1,6 @@
 using System;
 
-namespace cornucopia
+namespace cornucopia.Models
 {
     public class WeatherForecast
     {
