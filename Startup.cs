@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using cornucopia.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace cornucopia
 {
@@ -28,6 +30,10 @@ namespace cornucopia
         {
 
             services.AddControllers();
+
+            services.AddDbContext<SchoolContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SchoolContext")));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "cornucopia", Version = "v1" });
